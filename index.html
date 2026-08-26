@@ -31,7 +31,8 @@ nav{position:fixed;top:36px;left:0;right:0;z-index:999;background:rgba(0,0,0,.94
 .nav-links a:hover,.nav-links a.active{color:var(--blue)}
 .nav-cta{border:1px solid var(--blue)!important;color:var(--blue)!important;padding:7px 16px}
 .nav-cta:hover{background:var(--blue)!important;color:#fff!important}
-.hero{height:100vh;position:relative;display:flex;align-items:flex-end;padding-bottom:80px;background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.5)),url('images/hero.jpg') center/cover no-repeat}
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding-bottom:80px;background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.5)),url('images/hero.jpg') center/cover no-repeat}
+@media(max-width:640px){.hero{padding-bottom:48px}.hero-pre{font-size:10px;letter-spacing:3px;margin-bottom:12px}.hero-name{margin-bottom:14px}.hero-sub{margin-bottom:18px}.hero-badge-photo{top:100px!important;right:4%!important;padding:10px 14px!important}.hero-badge-photo img{height:46px!important}}
 .hero-inner{padding:0 6%;max-width:760px;width:100%;margin:0 auto}
 .hero-pre{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:var(--lightgray);margin-bottom:16px}
 h1.hero-name{font-family:var(--fd);font-size:clamp(56px,9vw,110px);font-weight:700;text-transform:uppercase;letter-spacing:4px;line-height:.88;color:var(--white);margin-bottom:20px}
@@ -682,7 +683,7 @@ footer{padding-bottom:100px!important}
   </div>
 </nav>
 <section id="hero" class="hero">
-  <div style="position:absolute;top:118px;right:5%;z-index:3;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-radius:12px;padding:16px 22px;border:1px solid rgba(255,255,255,.15)">
+  <div class="hero-badge-photo" style="position:absolute;top:118px;right:5%;z-index:3;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border-radius:12px;padding:16px 22px;border:1px solid rgba(255,255,255,.15)">
     <img src="images/badge-performance-coach.png" alt="Hyrox Performance Coach" style="height:74px;display:block">
   </div>
   <div class="hero-inner">
