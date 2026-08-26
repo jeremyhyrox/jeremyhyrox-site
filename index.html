@@ -11,7 +11,7 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--dark);color:var(--white);font-family:var(--fb);overflow-x:hidden}
 #topbar{position:fixed;top:0;left:0;right:0;height:44px;background:#000;border-bottom:1px solid rgba(26,111,255,.2);z-index:1001;display:flex;align-items:center;justify-content:center;gap:16px;overflow:hidden}
 .tb-dot{color:#252525;font-size:14px}
-nav{position:fixed;top:44px;left:0;right:0;z-index:999;background:rgba(0,0,0,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:36px;left:0;right:0;z-index:999;background:rgba(0,0,0,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
 .nav-i{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:1200px;margin:0 auto;padding:0 5%}
 .nav-links{display:flex;gap:16px;list-style:none;flex-wrap:nowrap}
 .nav-links a{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s;white-space:nowrap}
@@ -612,18 +612,41 @@ footer { border-top:1px solid rgba(255,255,255,.06) !important; }
 .prog-day:nth-child(6){border-color:rgba(26,111,255,.28)!important;background:rgba(26,111,255,.07)!important}
 img,video,[style*="grayscale"],[style*="filter"]{filter:none!important;-webkit-filter:none!important}
 footer{padding-bottom:100px!important}
-</style><style id="jh-fix">#faq .faq-item .faq-a{max-height:0!important;overflow:hidden!important;padding-top:0!important;padding-bottom:0!important;transition:max-height .4s ease,padding .3s ease!important;}#faq .faq-item.jhopen .faq-a{max-height:800px!important;padding-bottom:22px!important;}#faq .faq-item.jhopen .faq-arr{transform:rotate(45deg)!important;}#faq .faq-q{cursor:pointer!important;}#hyrox img{opacity:.85!important;object-position:center 30%!important;}#float-cta{pointer-events:none!important;}#float-cta a,#float-cta button{pointer-events:auto!important;}#contact > img{pointer-events:none!important;}#contact form{position:relative!important;z-index:2!important;}</style></head>
+</style><style id="jh-fix">#faq .faq-item .faq-a{max-height:0!important;overflow:hidden!important;padding-top:0!important;padding-bottom:0!important;transition:max-height .4s ease,padding .3s ease!important;}#faq .faq-item.jhopen .faq-a{max-height:800px!important;padding-bottom:22px!important;}#faq .faq-item.jhopen .faq-arr{transform:rotate(45deg)!important;}#faq .faq-q{cursor:pointer!important;}#hyrox img{opacity:.85!important;object-position:center 30%!important;}#float-cta{pointer-events:none!important;}#float-cta a,#float-cta button{pointer-events:auto!important;}#contact > img{pointer-events:none!important;}#contact form{position:relative!important;z-index:2!important;}</style>
+<style id="jh-ticker">
+#topbar{position:fixed;top:0;left:0;right:0;height:36px;background:#000;border-bottom:1px solid rgba(26,111,255,.2);z-index:1001;display:flex;align-items:center;gap:10px;padding:0 16px;overflow:hidden}
+.tb-dot-pulse{width:6px;height:6px;border-radius:50%;background:var(--blue);flex:0 0 auto;animation:tbpulse 1.8s ease-in-out infinite}
+@keyframes tbpulse{0%,100%{opacity:1}50%{opacity:.35}}
+.tb-view{overflow:hidden;flex:1;min-width:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.tb-track{display:inline-block;white-space:nowrap;will-change:transform;animation:tbscroll 32s linear infinite}
+#topbar:hover .tb-track{animation-play-state:paused}
+@keyframes tbscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tb-track .tbit{display:inline-block;padding:0 26px;font-family:'Open Sans',sans-serif;font-size:10px;letter-spacing:1.5px;color:#777;text-transform:uppercase}
+.tb-track .tbit b{color:#fff;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.5px}
+.tb-track .tbit .tbjx{color:var(--blue);font-weight:700}
+@media(max-width:600px){.tb-track .tbit{padding:0 18px;font-size:9px}}
+</style></head>
 <body>
-<!-- TOPBAR DÉCOMPTE -->
-<div id="topbar">
-  <span class="tb-pre" style="font-family:'Open Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#555">Prochaine course</span>
-  <span class="tb-dot">·</span>
-  <span style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;letter-spacing:2.5px;color:white;text-transform:uppercase">BORDEAUX</span>
-  <span class="tb-dot">·</span>
-  <span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:white;letter-spacing:-1px">J—<span id="tb-d">117</span></span>
-  <span class="tb-dot">·</span>
-  <span class="tb-date" style="font-family:'Open Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#555">30 Sept 2026</span>
-</div>
+<!-- TOPBAR DÉFILANT : PROCHAINES COURSES HYROX -->
+<a id="topbar" href="#calendrier">
+  <span class="tb-dot-pulse"></span>
+  <span class="tb-view">
+    <span class="tb-track" id="tb-track">
+      <span class="tbit"><b>Hyrox Bordeaux</b> · 30 sept 2026 · <span class="tbjx" data-date="2026-09-30T08:00:00">J-35</span></span>
+      <span class="tbit"><b>Hyrox Nice</b> · 29 oct 2026 · <span class="tbjx" data-date="2026-10-29T08:00:00">J-64</span></span>
+      <span class="tbit"><b>Hyrox Paris</b> · 12 déc 2026 · <span class="tbjx" data-date="2026-12-12T08:00:00">J-108</span></span>
+      <span class="tbit"><b>Hyrox Toulouse</b> · 3 fév 2027 · <span class="tbjx" data-date="2027-02-03T08:00:00">J-161</span></span>
+      <span class="tbit"><b>Hyrox Paris Grand Palais</b> · 8 avr 2027 · <span class="tbjx" data-date="2027-04-08T08:00:00">J-225</span></span>
+      <span class="tbit"><b>Hyrox Lyon</b> · 12 mai 2027 · <span class="tbjx" data-date="2027-05-12T08:00:00">J-259</span></span>
+      <span class="tbit"><b>Hyrox Bordeaux</b> · 30 sept 2026 · <span class="tbjx" data-date="2026-09-30T08:00:00">J-35</span></span>
+      <span class="tbit"><b>Hyrox Nice</b> · 29 oct 2026 · <span class="tbjx" data-date="2026-10-29T08:00:00">J-64</span></span>
+      <span class="tbit"><b>Hyrox Paris</b> · 12 déc 2026 · <span class="tbjx" data-date="2026-12-12T08:00:00">J-108</span></span>
+      <span class="tbit"><b>Hyrox Toulouse</b> · 3 fév 2027 · <span class="tbjx" data-date="2027-02-03T08:00:00">J-161</span></span>
+      <span class="tbit"><b>Hyrox Paris Grand Palais</b> · 8 avr 2027 · <span class="tbjx" data-date="2027-04-08T08:00:00">J-225</span></span>
+      <span class="tbit"><b>Hyrox Lyon</b> · 12 mai 2027 · <span class="tbjx" data-date="2027-05-12T08:00:00">J-259</span></span>
+    </span>
+  </span>
+</a>
 
 
 
@@ -1647,13 +1670,15 @@ function toggleReco(item){item.classList.toggle('checked');var n=document.queryS
   function jDays(dateStr){return Math.max(0,Math.floor((new Date(dateStr)-new Date())/86400000));}
   function setEl(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
   function tickCountdowns(){
-    setEl('tb-d',jDays('2026-09-30T08:00:00'));
     setEl('bd-d',jDays('2026-09-30T08:00:00'));
     setEl('nc-d',jDays('2026-10-29T08:00:00'));
     setEl('pa-d',jDays('2026-12-12T08:00:00'));
     setEl('tl-d',jDays('2027-02-03T08:00:00'));
     setEl('pg-d',jDays('2027-04-08T08:00:00'));
     setEl('ly-d',jDays('2027-05-12T08:00:00'));
+    document.querySelectorAll('.tbjx[data-date]').forEach(function(el){
+      el.textContent = 'J-' + jDays(el.getAttribute('data-date'));
+    });
   }
   tickCountdowns();
   setInterval(tickCountdowns,3600000);
