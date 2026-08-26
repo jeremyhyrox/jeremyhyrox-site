@@ -1383,14 +1383,29 @@ updateSim();
     </div>
     <div class="fi">
       <div class="fi-yr" style="min-width:110px;font-size:13px;flex-direction:column;align-items:flex-start;gap:2px">
-        <span>Printemps</span><span style="font-size:10px;color:var(--gray);font-family:var(--fb);font-weight:400">2027</span>
+        <span>3 Fév</span><span style="font-size:10px;color:var(--gray);font-family:var(--fb);font-weight:400">→ 7 Fév 2027</span>
       </div>
       <div class="fi-ct">
-        <div class="fi-t">HYROX LYON 2027</div>
-        <div class="fi-o">Eurexpo, Chassieu · Dates à confirmer (annonce prévue août-nov 2026)</div>
+        <div class="fi-t">HYROX TOULOUSE</div>
+        <div class="fi-o">J—<span id="tl-d">161</span></div>
       </div>
-      <div style="padding:24px;display:flex;align-items:center">
-        <span style="font-family:var(--fb);font-size:10px;color:var(--gray);letter-spacing:1px;text-transform:uppercase">TBA</span>
+    </div>
+    <div class="fi">
+      <div class="fi-yr" style="min-width:110px;font-size:13px;flex-direction:column;align-items:flex-start;gap:2px">
+        <span>8 Avr</span><span style="font-size:10px;color:var(--gray);font-family:var(--fb);font-weight:400">→ 12 Avr 2027</span>
+      </div>
+      <div class="fi-ct">
+        <div class="fi-t">HYROX PARIS GRAND PALAIS</div>
+        <div class="fi-o">J—<span id="pg-d">225</span></div>
+      </div>
+    </div>
+    <div class="fi">
+      <div class="fi-yr" style="min-width:110px;font-size:13px;flex-direction:column;align-items:flex-start;gap:2px">
+        <span>12 Mai</span><span style="font-size:10px;color:var(--gray);font-family:var(--fb);font-weight:400">→ 16 Mai 2027</span>
+      </div>
+      <div class="fi-ct">
+        <div class="fi-t">HYROX LYON</div>
+        <div class="fi-o">Eurexpo, Chassieu · J—<span id="ly-d">259</span></div>
       </div>
     </div>
   </div>
@@ -1630,14 +1645,17 @@ function toggleReco(item){item.classList.toggle('checked');var n=document.queryS
 (function(){
   function jDays(dateStr){return Math.max(0,Math.floor((new Date(dateStr)-new Date())/86400000));}
   function setEl(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
-  setEl('bd-d',jDays('2026-09-30T08:00:00'));
-  setEl('nc-d',jDays('2026-10-29T08:00:00'));
-  setEl('pa-d',jDays('2026-12-12T08:00:00'));
-  setInterval(function(){
+  function tickCountdowns(){
+    setEl('tb-d',jDays('2026-09-30T08:00:00'));
     setEl('bd-d',jDays('2026-09-30T08:00:00'));
     setEl('nc-d',jDays('2026-10-29T08:00:00'));
     setEl('pa-d',jDays('2026-12-12T08:00:00'));
-  },3600000);
+    setEl('tl-d',jDays('2027-02-03T08:00:00'));
+    setEl('pg-d',jDays('2027-04-08T08:00:00'));
+    setEl('ly-d',jDays('2027-05-12T08:00:00'));
+  }
+  tickCountdowns();
+  setInterval(tickCountdowns,3600000);
 })();
 
 var fc=document.getElementById('float-cta');
