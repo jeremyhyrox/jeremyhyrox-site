@@ -28,7 +28,7 @@ nav{position:fixed;top:36px;left:0;right:0;z-index:999;background:rgba(0,0,0,.94
 .nav-i{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:900px;margin:0 auto;padding:0 5%}
 .nav-links{display:flex;gap:16px;list-style:none;flex-wrap:nowrap}
 .nav-links a{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s;white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{color:var(--blue)}
+.nav-links a:hover,.nav-links a.active{color:var(--blue)}.nav-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:32px;height:32px;background:none;border:none;cursor:pointer;padding:0;z-index:100}.nav-burger span{display:block;width:24px;height:2px;background:#fff;transition:.25s}.nav-burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}.nav-burger.active span:nth-child(2){opacity:0}.nav-burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .nav-cta{border:1px solid var(--blue)!important;color:var(--blue)!important;padding:7px 16px}
 .nav-cta:hover{background:var(--blue)!important;color:#fff!important}
 .hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding-bottom:80px;background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.5)),url('images/hero.jpg') center/cover no-repeat}
@@ -202,7 +202,7 @@ section{padding:96px 5%}
 .ml-p{font-family:var(--fb);font-size:13.5px;color:#888;line-height:1.8;margin-bottom:8px}
 .ml-p a{color:var(--blue);text-decoration:none}.ml-p a:hover{color:#fff}
 footer{background:var(--black);padding:22px 5%;border-top:1px solid rgba(26,111,255,.1)}
-@media(max-width:900px){.nextrace-g,.reconnais-g,.hyrox-ph-i,.contact-g,.about-g{grid-template-columns:1fr}.diff-g,.temo-g,.niveau-records,.form-grid{grid-template-columns:1fr}.niveau-bars,.niveau-events{grid-template-columns:1fr 1fr}.nav-links{display:none}.float-label{display:none}}
+@media(max-width:900px){.nextrace-g,.reconnais-g,.hyrox-ph-i,.contact-g,.about-g{grid-template-columns:1fr}.diff-g,.temo-g,.niveau-records,.form-grid{grid-template-columns:1fr}.niveau-bars,.niveau-events{grid-template-columns:1fr 1fr}.nav-links{display:none}.nav-burger{display:flex}.nav-links.open{display:flex!important;position:fixed;top:60px;left:0;right:0;background:#0A0A0A;flex-direction:column;gap:0;padding:8px 5% 20px;border-top:1px solid rgba(255,255,255,.08);z-index:98}.nav-links.open li{width:100%;border-bottom:1px solid rgba(255,255,255,.06)}.nav-links.open li a{display:block;padding:16px 0;font-size:13px}.nav-links.open .nav-cta{border:none!important;padding:16px 0!important}.float-label{display:none}}
 @media(max-width:600px){.tb-pre,.tb-date{display:none}#topbar{gap:10px}.niveau-events{grid-template-columns:1fr 1fr}}
 
 .hyrox-badge{display:flex;align-items:center;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:14px 24px;gap:20px}
@@ -672,7 +672,8 @@ footer{padding-bottom:100px!important}
         <text x="101" y="80" font-family="Impact,'Arial Black',Arial,sans-serif" font-size="78" fill="white" text-anchor="middle">JH</text>
       </svg>
     </a>
-    <ul class="nav-links">
+    <button class="nav-burger" id="navBurger" aria-label="Menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <ul class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');document.getElementById('navBurger').classList.remove('active')}">
       <li><a href="#programmation">Programmation</a></li>
       <li><a href="#coaching">Coaching</a></li>
       <li><a href="mes-outils.html">Ton niveau</a></li>
