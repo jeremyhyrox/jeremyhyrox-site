@@ -644,14 +644,14 @@ footer{padding-bottom:100px!important}
   <span class="tb-dot-pulse"></span>
   <span class="tb-view">
     <span class="tb-track" id="tb-track">
-      <span class="tbit"><b>Hyrox Bordeaux</b> · 30 sept 2026 · <span class="tbjx" data-date="2026-09-30T08:00:00">J-35</span></span>
-      <span class="tbit"><b>Hyrox Nice</b> · 29 oct 2026 · <span class="tbjx" data-date="2026-10-29T08:00:00">J-64</span></span>
+      
+      
       <span class="tbit"><b>Hyrox Paris</b> · 12 déc 2026 · <span class="tbjx" data-date="2026-12-12T08:00:00">J-108</span></span>
       <span class="tbit"><b>Hyrox Toulouse</b> · 3 fév 2027 · <span class="tbjx" data-date="2027-02-03T08:00:00">J-161</span></span>
       <span class="tbit"><b>Hyrox Paris Grand Palais</b> · 8 avr 2027 · <span class="tbjx" data-date="2027-04-08T08:00:00">J-225</span></span>
       <span class="tbit"><b>Hyrox Lyon</b> · 12 mai 2027 · <span class="tbjx" data-date="2027-05-12T08:00:00">J-259</span></span>
-      <span class="tbit"><b>Hyrox Bordeaux</b> · 30 sept 2026 · <span class="tbjx" data-date="2026-09-30T08:00:00">J-35</span></span>
-      <span class="tbit"><b>Hyrox Nice</b> · 29 oct 2026 · <span class="tbjx" data-date="2026-10-29T08:00:00">J-64</span></span>
+      
+      
       <span class="tbit"><b>Hyrox Paris</b> · 12 déc 2026 · <span class="tbjx" data-date="2026-12-12T08:00:00">J-108</span></span>
       <span class="tbit"><b>Hyrox Toulouse</b> · 3 fév 2027 · <span class="tbjx" data-date="2027-02-03T08:00:00">J-161</span></span>
       <span class="tbit"><b>Hyrox Paris Grand Palais</b> · 8 avr 2027 · <span class="tbjx" data-date="2027-04-08T08:00:00">J-225</span></span>
@@ -1127,28 +1127,10 @@ footer{padding-bottom:100px!important}
   <div class="ft">
     <div class="fi" style="border-left:2px solid var(--blue)">
       <div class="fi-yr" style="min-width:110px;font-size:13px;flex-direction:column;align-items:flex-start;gap:2px">
-        <span style="color:var(--blue)">30 Sept</span><span style="font-size:10px;color:var(--gray);font-family:var(--fb);font-weight:400">→ 4 Oct 2026</span>
+        <span style="color:var(--blue)">12 Déc</span><span style="font-size:10px;color:var(--gray);font-family:var(--fb);font-weight:400">→ 20 Déc 2026</span>
       </div>
       <div class="fi-ct">
-        <div class="fi-t" style="color:var(--blue)">HYROX BORDEAUX</div>
-        <div class="fi-o">Parc des Expositions Bordeaux Lac · J—<span id="bd-d">108</span></div>
-      </div>
-    </div>
-    <div class="fi">
-      <div class="fi-yr" style="min-width:110px;font-size:13px;flex-direction:column;align-items:flex-start;gap:2px">
-        <span>29 Oct</span><span style="font-size:10px;color:var(--gray);font-family:var(--fb);font-weight:400">→ 1 Nov 2026</span>
-      </div>
-      <div class="fi-ct">
-        <div class="fi-t">HYROX NICE</div>
-        <div class="fi-o">Palais des Expositions de Nice · J—<span id="nc-d">137</span></div>
-      </div>
-    </div>
-    <div class="fi">
-      <div class="fi-yr" style="min-width:110px;font-size:13px;flex-direction:column;align-items:flex-start;gap:2px">
-        <span>12 Déc</span><span style="font-size:10px;color:var(--gray);font-family:var(--fb);font-weight:400">→ 20 Déc 2026</span>
-      </div>
-      <div class="fi-ct">
-        <div class="fi-t">HYROX PARIS</div>
+        <div class="fi-t" style="color:var(--blue)">HYROX PARIS</div>
         <div class="fi-o">Paris Expo Porte de Versailles · J—<span id="pa-d">181</span></div>
       </div>
     </div>
@@ -1423,8 +1405,8 @@ function toggleReco(item){item.classList.toggle('checked');var n=document.queryS
   function jDays(dateStr){return Math.max(0,Math.floor((new Date(dateStr)-new Date())/86400000));}
   function setEl(id,v){var el=document.getElementById(id);if(el)el.textContent=v;}
   function tickCountdowns(){
-    setEl('bd-d',jDays('2026-09-30T08:00:00'));
-    setEl('nc-d',jDays('2026-10-29T08:00:00'));
+    
+    
     setEl('pa-d',jDays('2026-12-12T08:00:00'));
     setEl('tl-d',jDays('2027-02-03T08:00:00'));
     setEl('pg-d',jDays('2027-04-08T08:00:00'));
